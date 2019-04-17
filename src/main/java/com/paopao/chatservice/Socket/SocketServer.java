@@ -31,7 +31,6 @@ public class SocketServer {
     public static void main(String[] args) {
         new SocketServer();
     }
-
     //启动服务器，等待客服端连接
     public SocketServer() {
         try {
@@ -177,6 +176,7 @@ public class SocketServer {
 
     private void sendMessage(String msg) throws IOException {
         JSONObject jsonObject = JSONObject.fromObject(msg);
+        //记录改用户时候已在列表里
         boolean isExist = false;
 
         for (int i = 0; i < nicknames.size(); i++) {
@@ -197,15 +197,15 @@ public class SocketServer {
             System.out.println("**********************************");
         }
 
-        //message=exit,退出聊天
-        if (jsonObject.get("Text").equals("exit")) {
+        //message=Exit,退出聊天
+        if (jsonObject.get("Message").equals("Exit")) {
             closeSocket();
             return;
         }
-        if (jsonObject.get("Text").equals(""))
-            System.out.println(jsonObject.get("Account") + "---图片二进制流-->" + jsonObject.get("Image"));
+        if (jsonObject.get("MessageType").equals("Image"))
+            System.out.println(jsonObject.get("Account") + "---图片二进制流-->" + jsonObject.get("Message"));
         else
-            System.out.println(jsonObject.get("Account") + "---文本内容-->" + jsonObject.get("Text"));
+            System.out.println(jsonObject.get("Account") + "---文本内容-->" + jsonObject.get("Message"));
 
         for (int i = 0; i < socketList.size(); i++) {
             Socket socket = socketList.get(i);
