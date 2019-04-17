@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Class-Path: jakarta.activation-api-1.2.1.jar jandex-2.0.5.Final.jar ja
+ karta.transaction-api-1.3.2.jar istack-commons-runtime-3.0.8.jar lomb
+ ok-1.18.6.jar spring-orm-5.1.5.RELEASE.jar jackson-datatype-jdk8-2.9.
+ 8.jar spring-boot-starter-web-2.2.0.M1.jar spring-context-5.1.5.RELEA
+ SE.jar tomcat-embed-websocket-9.0.16.jar spring-data-commons-2.2.0.M2
+ .jar hibernate-core-5.4.0.Final.jar stax-ex-1.8.1.jar HikariCP-3.3.1.
+ jar jackson-datatype-jsr310-2.9.8.jar jakarta.validation-api-2.0.1.ja
+ r jakarta.annotation-api-1.3.4.jar spring-jdbc-5.1.5.RELEASE.jar spri
+ ng-tx-5.1.5.RELEASE.jar javassist-3.24.0-GA.jar spring-boot-starter-d
+ ata-jpa-2.2.0.M1.jar jackson-annotations-2.9.0.jar spring-boot-2.2.0.
+ M1.jar txw2-2.3.2.jar jaxb-runtime-2.3.2.jar hibernate-validator-6.0.
+ 15.Final.jar logback-core-1.2.3.jar spring-aop-5.1.5.RELEASE.jar clas
+ smate-1.4.0.jar byte-buddy-1.9.10.jar spring-boot-starter-tomcat-2.2.
+ 0.M1.jar slf4j-api-1.7.26.jar spring-boot-starter-logging-2.2.0.M1.ja
+ r spring-data-jpa-2.2.0.M2.jar jakarta.xml.bind-api-2.3.2.jar spring-
+ jcl-5.1.5.RELEASE.jar FastInfoset-1.2.16.jar spring-web-5.1.5.RELEASE
+ .jar jakarta.persistence-api-2.2.2.jar spring-webmvc-5.1.5.RELEASE.ja
+ r spring-aspects-5.1.5.RELEASE.jar jboss-logging-3.3.2.Final.jar log4
+ j-to-slf4j-2.11.2.jar spring-expression-5.1.5.RELEASE.jar spring-core
+ -5.1.5.RELEASE.jar logback-classic-1.2.3.jar jul-to-slf4j-1.7.26.jar 
+ spring-beans-5.1.5.RELEASE.jar tomcat-embed-core-9.0.16.jar mysql-con
+ nector-java-8.0.15.jar dom4j-2.1.1.jar antlr-2.7.7.jar spring-boot-st
+ arter-aop-2.2.0.M1.jar spring-boot-autoconfigure-2.2.0.M1.jar jackson
+ -core-2.9.8.jar jackson-databind-2.9.8.jar spring-boot-starter-json-2
+ .2.0.M1.jar log4j-api-2.11.2.jar hibernate-commons-annotations-5.1.0.
+ Final.jar aspectjweaver-1.9.2.jar snakeyaml-1.24.jar spring-boot-star
+ ter-jdbc-2.2.0.M1.jar tomcat-embed-el-9.0.16.jar jackson-module-param
+ eter-names-2.9.8.jar spring-boot-starter-2.2.0.M1.jar
+Main-Class: com.paopao.chatservice.ChatserviceApplication
+
