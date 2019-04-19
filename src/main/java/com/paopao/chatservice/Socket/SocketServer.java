@@ -53,10 +53,10 @@ public class SocketServer {
                             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                             message = "";
                             //客户端只要一连到服务器，便发送连接成功的信息
-                            System.out.println("**********************************");
-                            System.out.println("服务器地址：" + socket.getInetAddress());
-                            System.out.println("当前连接总数：" + socketList.size());
-                            System.out.println("**********************************");
+//                            System.out.println("**********************************");
+//                            System.out.println("服务器地址：" + socket.getInetAddress());
+//                            System.out.println("当前连接总数：" + socketList.size());
+//                            System.out.println("**********************************");
 
 
                             while (true) {
@@ -80,99 +80,6 @@ public class SocketServer {
         }
     }
 
-//    class Service implements Runnable {
-//
-//        private Socket socket;
-//        private BufferedReader bufferedReader = null;
-//        private String message = "";
-//
-//        public Service(Socket socket) {
-//            this.socket = socket;
-//            try {
-//                //获得输入流对象
-//                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//                //客户端只要一连到服务器，便发送连接成功的信息
-//                System.out.println("****************************");
-//                System.out.println("服务器地址：" + this.socket.getInetAddress());
-//                System.out.println("当前连接总数：" + socketList.size());
-//                System.out.println("****************************");
-//
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        /**
-//         * 将接收的消息转发给每一个客服端
-//         *
-//         * @param msg
-//         */
-//        public void sendMessage(String msg) {
-//            JSONObject jsonObject = JSONObject.fromObject(msg);
-//            boolean isExist = false;
-//            for (String str : nicknames) {
-//                if (str.equals(jsonObject.get("Account"))) {
-//                    isExist = true;
-//                    break;
-//                }
-//            }
-//            if (!isExist) {
-//                nicknames.add(jsonObject.get("Account") + "");
-//                System.out.println("用户列表:");
-//                for (String s : nicknames)
-//                    System.out.print(s + "   ");
-//            }
-//            System.out.println(jsonObject.get("Account") + "--->" + jsonObject.get("Message"));
-//            for (int i = 0; i < socketList.size(); i++) {
-//                Socket socket = socketList.get(i);
-//                PrintWriter printWriter = null;
-//                try {
-//                    //创建输出流对象
-//                    printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-//                    //转发
-//                    printWriter.println(msg);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//
-//
-//        @Override
-//        public void run() {
-//            try {
-//                while (true) {
-//                    if ((message = bufferedReader.readLine()) != null) {
-//                        //当客户端发送的信息为：exit时，关闭连接
-//                        if (message.equals("exit")) {
-//                            closeSocket();
-//                            break;
-//                        } else {
-//                            //接收客服端发过来的信息message，然后转发给客服端
-//                            this.sendMessage(message);
-//                        }
-//                    }
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        /**
-//         * 关闭客服端
-//         *
-//         * @throws IOException
-//         */
-//        public void closeSocket() throws IOException {
-//            socketList.remove(socket);
-//            bufferedReader.close();
-//            message = "主机：" + socket.getInetAddress() + "关闭连接\n目前在线:"
-//                    + socketList.size();
-//            socket.close();
-//            this.sendMessage(message);
-//        }
-//    }
 
     private void sendMessage(String msg) throws IOException {
         JSONObject jsonObject = JSONObject.fromObject(msg);
@@ -194,16 +101,17 @@ public class SocketServer {
             for (String s : nicknames)
                 System.out.print(s + "   ");
             System.out.println();
+            System.out.println("当前连接总数：" + nicknames.size());
             System.out.println("**********************************");
         }
 
-        //message=Exit,退出聊天
-        if (jsonObject.get("Message").equals("Exit")) {
-            closeSocket();
-            return;
-        }
+//        //message=Exit,退出聊天
+//        if (jsonObject.get("Message").equals("Exit")) {
+//            closeSocket();
+//            return;
+//        }
         if (jsonObject.get("MessageType").equals("Image"))
-            System.out.println(jsonObject.get("Account") + "---图片二进制流-->" + jsonObject.get("Message"));
+            System.out.println(jsonObject.get("Account") + "---图片二进制流-->" + (jsonObject.get("Message")+"").substring(0,10)+"...");
         else
             System.out.println(jsonObject.get("Account") + "---文本内容-->" + jsonObject.get("Message"));
 
